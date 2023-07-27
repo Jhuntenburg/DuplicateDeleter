@@ -11,11 +11,59 @@ public final class StringDuplicateDeleter extends DuplicateDeleter<String> {
 
     @Override
     public String[] removeDuplicates(int maxNumberOfDuplications) {
-        return new String[0];
+        String nonDuplicates = "";
+        for (int i = 0; i < array.length; i++) {
+            String integer = array[i];
+            Integer counter = 0;
+
+            for (int j = 0; j < array.length; j++) {
+                if (integer.equals(array[j])) {
+                    counter++;
+                }
+
+
+            }
+            if (!(counter >= maxNumberOfDuplications)) {
+                nonDuplicates += array[i] + " ";
+            }
+        }
+        String[] stringResult = nonDuplicates.split(" ");
+
+
+        if (nonDuplicates.equals("")) {
+            return new String[0];
+        }
+
+
+        return stringResult;
     }
 
     @Override
     public String[] removeDuplicatesExactly(int exactNumberOfDuplications) {
-        return new String[0];
+        String nonDuplicates = "";
+        for (int i = 0; i < array.length; i++) {
+            String integer = array[i];
+            Integer counter = 0;
+
+            for (int j = 0; j < array.length; j++) {
+                if (integer.equals(array[j])) {
+                    counter++;
+                }
+
+
+            }
+            if (!(counter == exactNumberOfDuplications)) {
+                nonDuplicates += array[i] +" ";
+            }
+        }
+        String[] stringResult = nonDuplicates.split(" ");
+//        Integer[] result = new Integer[stringResult.length];
+//        for (int i = 0; i < result.length; i++) {
+//            String number = nonDuplicates.charAt(i) + "";
+//            result[i] = Integer.valueOf(stringResult[i]);
+
+
+        return stringResult;
     }
+
 }

@@ -12,9 +12,38 @@ public final class IntegerDuplicateDeleter extends DuplicateDeleter<Integer> {
 
     @Override
     public Integer[] removeDuplicates(int maxNumberOfDuplications) {
+        String nonDuplicates = "";
+        for (int i = 0; i < array.length; i++) {
+            Integer integer = array[i];
+            Integer counter = 0;
+
+            for (int j = 0; j < array.length; j++) {
+                if (array[i].equals(array[j])) {
+                    counter++;
+                }
 
 
-        return new Integer[0];
+            }
+            if (!(counter >= maxNumberOfDuplications)) {
+                nonDuplicates += array[i];
+            }
+        }
+        String[] stringResult = nonDuplicates.split("");
+        Integer[] result = new Integer[stringResult.length];
+
+        if (nonDuplicates.equals("")) {
+            return new Integer[0];
+        } else {
+
+            for (int i = 0; i < result.length; i++) {
+
+                result[i] = Integer.valueOf(stringResult[i]);
+
+            }
+        }
+
+
+        return result;
     }
 
     @Override
@@ -25,7 +54,7 @@ public final class IntegerDuplicateDeleter extends DuplicateDeleter<Integer> {
             Integer counter = 0;
 
             for (int j = 0; j < array.length; j++) {
-                if (array[i].equals( array[j])) {
+                if (array[i].equals(array[j])) {
                     counter++;
                 }
 
